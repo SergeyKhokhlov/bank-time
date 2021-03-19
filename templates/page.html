@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style="text-align: center; margin-top: 3%; margin-bottom: 6%;">{{name}}</h1>
+
+    {% for i in text %}
+        {% if "img:" in i %}
+            <img style="margin-left: 10%; margin-right: 10%; margin-top: 5%;
+                margin-bottom: -3%;" width="50%" name="image">
+            <script>
+                var img_src = '{{i}}'.split('$PARAMS$')[0].split('img:')[1];
+                var img_alt = '{{i}}'.split('$PARAMS$')[1].split('alt:')[1];
+                document.image.src = img_src
+                document.image.alt = img_alt
+            </script>
+        {% elif "video:" in i %}
+            <div style="margin-top: 7%;" align="center">
+                <iframe id="video"
+                        width="560"
+                        height="315"
+                        frameborder="0" allow="accelerometer; autoplay;
+                        clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                <script>
+                    var video_src = '{{i}}'.split('video:')[1];
+                    document.getElementById('video').src = video_src
+                </script>
+            </div>
+        {% elif "link:" in i %}
+            <div style="margin-left: 10%; margin-right: 10%; margin-top: 5%;
+                margin-bottom: -3%; font-size: 20px;"><a target="_blank" id="link"></a>
+            <script>
+                var link_href = '{{i}}'.split('$PARAMS$')[0].split('link:')[1];
+                var link_text = '{{i}}'.split('$PARAMS$')[1].split('text:')[1];
+                document.getElementById('link').href = link_href
+                document.getElementById('link').innerHTML = link_text
+            </script></div>
+        {% else %}
+            <p align="justify" style="margin-left: 10%; margin-right: 10%; margin-top: 5%;
+                margin-bottom: -3%; font-size: 20px;">{{i}}</p>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

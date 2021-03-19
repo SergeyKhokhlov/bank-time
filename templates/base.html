@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous">
+    {% block header %}{% endblock %}
+</head>
+<body>
+    <div style="display: flex; margin-top: 20px;">
+        <div style="display: inline-block; margin-left: 10px;">
+            <a style="text-decoration: none;" href="/">
+                <div style="display: block;">
+                    <img src="/static/img/icon.png" alt="InfoBank ICON" width="150px">
+                    <h1 style="color: #008080; margin-top: -5px; font-size: 33px;
+                    margin-left: 3px;">Bank-Time</h1>
+                </div>
+            </a>
+        </div>
+        <h3 style="margin-left: 2%; color: grey; text-align: center;
+         margin-top: 10px; text-align: left;">Разбираем:<br>· Новвоведения банков<br>· Кредиты<br>· Ипотеки<br>И многое другое!</h3>
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <div style="position: absolute; right: 0; bottom: 0; width: 10; height: 17%; margin-right: 130px;">
+        <div style="position: fixed; z-index: 101;">
+            <a href="https://t.me/khokhlovs" target="_blank"><img src="/static/img/telegram.png" alt="Telegram Link" width="100px"></a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form style="margin-top: 70px; margin-left: 90px;" action="" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <p>
+            {{ form.name.label(style="font-size: 20px;") }}<br>
+            {{ form.name(class="form-control", style="width: 80%;", type="string") }}<br>
+        </p>
+        <p>
+            {{ form.content.label(style="font-size: 20px;") }}<br>
+            {{ form.content(class="form-control", style="width: 80%;", type="string") }}<br>
+        </p>
+        <p>
+            {{ form.img.label(style="font-size: 20px;") }}<br>
+            {{ form.img(class="form-control", style="width: 80%;", type="string") }}<br>
+        </p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    </form>
+
+{% endblock %}

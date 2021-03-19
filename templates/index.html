@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for i in notes_list %}
+            <a href="note/{{loop['index']}}">
+                <div style="margin-top: 100px;
+            border: 1px solid lightgrey; margin-bottom: -90px;
+        margin-left: 10px; margin-right: 200px; padding-top: 30px;
+        padding-bottom: 30px; padding-left: 20px; font-size: 30px;">
+                    <img src="{{all_imgs[loop['index'] - 1]}}"
+                         id="image" width="10%" style="margin-right: 50px;">{{i}}</div>
+    {% endfor %}
+    <div style="display: flex;>
+    align-items: center; justify-content: center; margin-top: 200px; margin-bottom: 50px;">
+    <p style="margin-right: 80px;"><a class="btn btn-primary" href="/page/{{back_page}}">
+            Предыдущая страница</a></p>
+    <p class="nextPage"><a class="btn btn-primary" href="/page/{{next_page}}">
+        Следующая страница</a></p></div>
+{% endblock %}
